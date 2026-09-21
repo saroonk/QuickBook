@@ -1,0 +1,74 @@
+
+#referral-tree .referral-node {
+    position: relative;
+    z-index: 2;
+}
+
+/* Vertical line from parent */
+#referral-tree .text-center.mb-3 > .row::before {
+    content: "";
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    width: 2px;
+    height: 16px;
+    background: #adb5bd;
+}
+
+/* Container for left/right children */
+#referral-tree .text-center.mb-3 > .row {
+    position: relative;
+}
+
+/* Horizontal line connecting left and right branches */
+#referral-tree .text-center.mb-3 > .row::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: #adb5bd;
+}
+
+/* Vertical line going down to each child */
+#referral-tree .text-center.mb-3 > .row > .col-6 {
+    position: relative;
+}
+
+#referral-tree .text-center.mb-3 > .row > .col-6::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 16px;
+    background: #adb5bd;
+}
+
+
+@media (max-width: 768px) {
+
+    #referral-tree {
+        overflow-x: auto;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #referral-tree .referral-node {
+        min-width: 105px;
+        max-width: 140px;
+        font-size: 12px;
+        padding: 8px 10px !important;
+    }
+
+    #referral-tree .text-center.mb-3 > .row > .col-6 {
+        flex: 0 0 140px;
+        width: 140px;
+        max-width: 140px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
